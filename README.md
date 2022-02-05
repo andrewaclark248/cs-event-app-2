@@ -9,3 +9,4 @@ Create a database named event_app_development
 
 Ensure mysql is running - brew sevices mysql start
 
+Can create user by usual devise registration
