@@ -25,6 +25,14 @@
 				</div>
 				<br>
 				<div class="row">
+					<div class="col-lg-6">
+						<%= f.label :image, 'Image' %> <br>
+
+  						<%= f.file_field :image %>
+					</div>
+				</div>
+				<br>
+				<div class="row">
 					<div class="col-lg-12">
 						<center>
 							<%= f.button :submit,  class: "btn btn-primary" %>
