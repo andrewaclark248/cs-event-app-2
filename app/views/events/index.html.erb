@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-lg-6 offset-lg-3">
+		<div class="card">
+		  <div class="card-header">
+		  	<center><h4>List Events</h4></center>
+		  </div>
+		  <div class="card-body">
+			<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Name</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			  	<% @events.each_with_index do |event, i| %>
+			    <tr>
+			      <th scope="row"><%= i+1 %></th>
+			      <td><%= event.name %></td>
+			    </tr>
+			    <% end %>
+			  </tbody>
+			</table>
+
+		  </div>
+		</div>
+	</div>
+</div>

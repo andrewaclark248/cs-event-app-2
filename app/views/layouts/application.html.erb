@@ -11,6 +11,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
+    <div class="container pt-5">
+      <% if flash.notice %>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "alert alert-info" %>
+        <% end %>
+      <% else %>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, class: "alert alert-danger" %>
+        <% end %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
