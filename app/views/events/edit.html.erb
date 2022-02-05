@@ -5,7 +5,7 @@
 		  	<center><h4>Create Event</h4></center>
 		  </div>
 		  <div class="card-body">
-			<%= simple_form_for(@event, url: events_path) do |f| %>
+			<%= simple_form_for(@event, url: event_path, method: :patch) do |f| %>
 				<div class="row">
 					<div class="col-lg-12">
 						<%= f.input :name, input_html: { class: 'form-control ' } %>
@@ -16,7 +16,7 @@
 					<div class="col-lg-12">
 						<%= f.label :planner, 'Gender' %> <br>
 
-  						<%= f.collection_select :planner, User.all, :id, :email, include_blank: true %>
+  						<%= f.collection_select :planner, User.all, :id, :email, include_blank: true, selected: @event.planner.id %>
 					</div>
 				</div>
 				<br>
@@ -32,3 +32,4 @@
 		</div>
 	</div>
 </div>
+

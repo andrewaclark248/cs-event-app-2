@@ -5,15 +5,11 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :agents
 
-
   root 'dashboard#index'
 
-
   #restful CRUD controllers
-  resources :events, only: [:index, :create, :new]
-
+  resources :events, only: [:index, :create, :new, :edit, :update]
 
   resources :app_users, only: [:index, :create, :new]
-
 
 end
