@@ -18,9 +18,27 @@
 
   						<%= f.collection_select :planner, User.all, :id, :email, include_blank: true %>
 					</div>
-					<div class="col-lg-3 offset-sm-2">
+					<div class="col-lg-1 offset-sm-1">
 						<%= f.label :star, 'Star' %> <br>
   						<%= f.check_box :star  %>
+					</div>					
+					<div class="col-lg-1 offset-sm-1">
+						<%= f.label :favorite, 'Favorite' %> <br>
+  						<%= f.check_box :favorite  %>
+					</div>
+				</div>
+				<br>	
+				<div class="row">
+					<div class="col-lg-12">
+						<%= f.label :start_time, 'Start Time' %> <br>
+   						 <%= f.datetime_select :start_time %>
+					</div>
+				</div>				
+				<br>	
+				<div class="row">
+					<div class="col-lg-12">
+						<%= f.label :end_time, 'End Time' %> <br>
+   						 <%= f.datetime_select :end_time %>
 					</div>
 				</div>
 				<br>

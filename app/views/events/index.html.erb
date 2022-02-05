@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-lg-6 offset-lg-3">
+	<div class="col-lg-8 offset-lg-3">
 		<div class="card">
 		  <div class="card-header">
 		  	<center><h4>List Events</h4></center>
@@ -11,6 +11,7 @@
 			      <th scope="col">#</th>
 			      <th scope="col">Name</th>
 			      <th scope="col">Planner</th>
+			      <th scope="col">Start Time</th>
 			      <th scope="col"></th>
 			    </tr>
 			  </thead>
@@ -20,6 +21,7 @@
 				      <th scope="row"><%= i+1 %></th>
 				      <td><%= event.name %></td>
 				      <td><%= event.planner.email %></td>
+				      <td><%= event.start_time.strftime('%Y-%m-%d %I:%M:%S') %></td>
 				      <td>
 	        			<%= link_to "Edit", edit_event_path(event), class: "nav-link"%>
 				      </td>
