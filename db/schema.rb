@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_05_220554) do
+ActiveRecord::Schema.define(version: 2022_02_05_230129) do
 
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 2022_02_05_220554) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.boolean "star"
+    t.boolean "favorite"
+    t.datetime "start_time", precision: 6
+    t.datetime "end_time", precision: 6
     t.index ["user_id"], name: "index_events_on_user_id"
   end
 

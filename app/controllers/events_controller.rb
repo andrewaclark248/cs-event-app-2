@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 		planner = User.find_by(id: event_params[:planner].to_i)
 		@event = Event.new(event_params.except(:planner, :image))
 		@event.planner = planner
-		@event.image.attach(io: event_params[:image].tempfile, filename: "xyz.pdf", content_type: "application/pdf")  
+		@event.image.attach(io: event_params[:image].tempfile, filename: "xyz.pdf", content_type: "application/pdf")  if event_params[:image].present? 
 
 		if @event.save
 			flash[:notice] = "Event was saved"
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 		planner = User.find_by(id: event_params[:planner].to_i)
 		@event = Event.find_by(id: params[:id])
 		@event.planner = planner
-		@event.image.attach(io: event_params[:image].tempfile, filename: "xyz.pdf", content_type: "application/pdf")  
+		@event.image.attach(io: event_params[:image].tempfile, filename: "xyz.pdf", content_type: "application/pdf")  if event_params[:image].present? 
 
 		if @event.update(event_params.except(:planner))
 			flash[:notice] = "Event was updated."
@@ -44,7 +44,7 @@ class EventsController < ApplicationController
 
 	private 
 		def event_params
-			params.require(:event).permit(:name, :planner, :star, :image)
+			params.require(:event).permit(:name, :planner, :star, :favorite, :image, :start_time, :end_time)
 		end
 
 end
