@@ -11,7 +11,9 @@
   </head>
 
   <body>
+    <% if current_user %>
     <%= render "shared/navbar" %>
+    <% end %>
     <div class="container pt-5">
       <% if flash.notice %>
         <% flash.each do |name, msg| %>
