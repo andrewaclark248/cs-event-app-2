@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
 
 	def index
+		@events = Event.all
 	end
 
 	def new
@@ -10,10 +11,9 @@ class EventsController < ApplicationController
 	def create
 		@event = Event.new(event_params)
 		if @event.save
-			flash[:notice] = "Alert was saved"
+			flash[:notice] = "Event was saved"
 		else
-			flash[:error] = "Alert was saved"
-
+			flash[:error] = "Event was not saved. #{@event.errors.full_messages.to_sentence}"
 		end
 		redirect_to root_path
 	end
