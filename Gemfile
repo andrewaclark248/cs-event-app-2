@@ -38,6 +38,8 @@ gem 'simple_form'
 
 gem 'pry', '~> 0.13.1'
 
+gem 'devise'
+
 
 
 group :development, :test do
