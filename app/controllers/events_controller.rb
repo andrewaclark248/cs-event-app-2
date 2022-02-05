@@ -10,7 +10,9 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(event_params)
+		planner = User.find_by(id: event_params[:planner].to_i)
+		@event = Event.new(event_params.except(:planner))
+		@event.planner = planner
 		if @event.save
 			flash[:notice] = "Event was saved"
 		else
@@ -19,9 +21,26 @@ class EventsController < ApplicationController
 		redirect_to root_path
 	end
 
-
-	def event_params
-		params.require(:event).permit(:name)
+	def edit
+		@event = Event.find_by(id: params[:id])
 	end
+
+	def update
+		planner = User.find_by(id: event_params[:planner].to_i)
+		@event = Event.find_by(id: params[:id])
+		@event.planner = planner
+		if @event.update(event_params.except(:planner))
+			flash[:notice] = "Event was updated."
+		else
+			flash[:error] = "Event was not updated. #{@event.errors.full_messages.to_sentence}"
+		end
+		redirect_to root_path
+	end
+
+
+	private 
+		def event_params
+			params.require(:event).permit(:name, :planner)
+		end
 
 end
