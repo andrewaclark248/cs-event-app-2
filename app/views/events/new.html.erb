@@ -13,10 +13,14 @@
 				</div>
 				<br>
 				<div class="row">
-					<div class="col-lg-12">
+					<div class="col-lg-6">
 						<%= f.label :planner, 'Gender' %> <br>
 
   						<%= f.collection_select :planner, User.all, :id, :email, include_blank: true %>
+					</div>
+					<div class="col-lg-3 offset-sm-2">
+						<%= f.label :star, 'Star' %> <br>
+  						<%= f.check_box :star  %>
 					</div>
 				</div>
 				<br>
