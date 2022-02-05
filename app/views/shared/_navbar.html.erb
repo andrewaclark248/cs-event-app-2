@@ -1,18 +1,25 @@
-<nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 
   <div class="container-fluid">
     <!-- Links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">Link 1</a>
+        <a class="navbar-brand" href="#">Event App</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link 2</a>
+        <%= link_to "Create Event", new_event_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Link 3</a>
+        <a class="nav-link" href="#">List Events</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Create Users</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">List Users</a>
       </li>
     </ul>
   </div>
 
 </nav>
+
