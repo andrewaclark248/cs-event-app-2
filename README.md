@@ -7,3 +7,5 @@ Ensure you have ruby 3.0.3 installed on computer
 
 Create a database named event_app_development
 
+Ensure mysql is running - brew sevices mysql start
+
