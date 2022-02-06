@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
 
 	def index
-		@events = Event.order("start_time ASC")
+		@events = Event.page(params[:page]) #Event.order("start_time ASC")
 	end
 
 	def new
