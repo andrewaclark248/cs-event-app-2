@@ -40,6 +40,8 @@ gem 'pry', '~> 0.13.1'
 
 gem 'devise'
 
+#paginate
+gem 'kaminari'
 
 
 group :development, :test do
