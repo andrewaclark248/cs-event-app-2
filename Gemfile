@@ -40,13 +40,11 @@ gem 'pry', '~> 0.13.1'
 
 gem 'devise'
 
-#paginate
-gem 'kaminari'
-
 #searching
 gem 'ransack'
 
-gem 'will_paginate'#, '~> 3.3'
+#pagination
+gem 'will_paginate'
 
 
 group :development, :test do
