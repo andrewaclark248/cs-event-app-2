@@ -2,7 +2,8 @@ class EventsController < ApplicationController
 
 
 	def index
-		@events = Event.page(params[:page]) #Event.order("start_time ASC")
+		@q = Event.ransack(params[:q])
+  		@events = @q.result.paginate(page: params[:page], per_page: 5)
 	end
 
 	def new

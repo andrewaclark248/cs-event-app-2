@@ -5,13 +5,40 @@
 		  	<center><h4>List Events</h4></center>
 		  </div>
 		  <div class="card-body">
+		  	<div class="row">
+			<%= search_form_for @q do |f| %>
+				<div class="col-lg-2">
+			  		<%= f.label :name_cont, "Name" %>
+			  		<%= f.search_field :name_cont, class: 'form-control ' %>
+			  	</div>
+			  	<br>
+			  	<div class="col-lg-2">
+			  		<%= f.submit class: 'btn btn-primary' %>
+				</div>
+			<% end %>
+			</div>
+		  </div>
+		</div>
+	</div>
+</div>
+<br>
+
+<br>
+<div class="row">
+	<div class="col-lg-8 offset-lg-3">
+		<div class="card">
+		  <div class="card-header">
+		  	<center><h4>List Events</h4></center>
+		  </div>
+		  <div class="card-body">
 			<table class="table">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
-			      <th scope="col">Name</th>
+			      <th scope="col"><%= sort_link(@q, :name) %></th>
 			      <th scope="col">Planner</th>
-			      <th scope="col">Start Time</th>
+			      <th scope="col"><%= sort_link(@q, :start_time) %></th>
+			      <th scope="col"><%= sort_link(@q, :favorite) %></th>
 			      <th scope="col"></th>
 			    </tr>
 			  </thead>
@@ -22,14 +49,15 @@
 				      <td><%= event.name %></td>
 				      <td><%= event.planner.email %></td>
 				      <td><%= event.start_time.strftime('%Y-%m-%d %I:%M:%S') %></td>
+					  <td><%= event.favorite %></td>
 				      <td>
 	        			<%= link_to "Edit", edit_event_path(event), class: "nav-link"%>
 				      </td>
 				    </tr>
 			    <% end %>
+				<%= will_paginate @events  %>
 			  </tbody>
 			</table>
-			<%= paginate @events %>
 		  </div>
 		</div>
 	</div>
